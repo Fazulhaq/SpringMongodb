@@ -48,6 +48,7 @@ public class EmptyFormController {
     @DeleteMapping("/emptyform/{emptyformid}")
     public ResponseEntity<HttpStatus> deleteEmptyForm(@PathVariable String emptyformid) {
         emptyFormService.deleteEmptyForm(emptyformid);
+
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
