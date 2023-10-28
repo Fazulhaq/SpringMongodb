@@ -22,4 +22,6 @@ public class FilledForm {
     private String formTitle;
     private String jsonText;
     private LocalDate filledDate;
+    private String userDataId;
+    private String emptyFormId;
 }

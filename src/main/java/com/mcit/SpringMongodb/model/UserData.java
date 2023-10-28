@@ -1,5 +1,7 @@
 package com.mcit.SpringMongodb.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,4 +24,6 @@ public class UserData {
     private String email;
     private String password;
     private String userType;
+    private List<EmptyForm> emptyForms;
+    private List<FilledForm> filledForms;
 }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.mcit.SpringMongodb.model.FilledForm;
 
 @Repository
-public interface FilledFormRespository extends MongoRepository<FilledForm, Long> {
+public interface FilledFormRespository extends MongoRepository<FilledForm, String> {
 }

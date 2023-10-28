@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.mcit.SpringMongodb.model.UserData;
 
 @Repository
-public interface UserDataRepository extends MongoRepository<UserData, Long> {
+public interface UserDataRepository extends MongoRepository<UserData, String> {
 
 }
