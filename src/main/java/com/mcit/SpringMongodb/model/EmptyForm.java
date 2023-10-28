@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,6 +26,10 @@ public class EmptyForm {
     private String formTitle;
     private String jsonText;
     private LocalDate publishDate;
-    private String userDataId;
+
+    @DBRef
+    private UserData userDataId;
+
+    @DBRef
     private List<FilledForm> filledForms;
 }

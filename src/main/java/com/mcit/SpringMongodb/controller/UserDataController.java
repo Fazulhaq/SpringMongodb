@@ -22,7 +22,7 @@ public class UserDataController {
 
     private UserDataService userDataService;
 
-    @GetMapping("/allusers")
+    @GetMapping("/alluserdata")
     public ResponseEntity<?> getAllUserData() {
         List<UserData> users = userDataService.getAllUsers();
         if (users.size() > 0) {

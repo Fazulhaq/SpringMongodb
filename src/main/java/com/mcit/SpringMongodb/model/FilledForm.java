@@ -3,6 +3,7 @@ package com.mcit.SpringMongodb.model;
 import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +23,10 @@ public class FilledForm {
     private String formTitle;
     private String jsonText;
     private LocalDate filledDate;
-    private String userDataId;
-    private String emptyFormId;
+
+    @DBRef
+    private UserData userData;
+
+    @DBRef
+    private EmptyForm emptyForm;
 }
