@@ -23,6 +23,7 @@ public class FilledForm {
     private String formTitle;
     private String jsonText;
     private LocalDate filledDate;
+    private FormStatus formStatus;
 
     @DBRef
     private UserData userData;

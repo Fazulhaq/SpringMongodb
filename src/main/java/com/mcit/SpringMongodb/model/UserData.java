@@ -1,9 +1,6 @@
 package com.mcit.SpringMongodb.model;
 
-import java.util.List;
-
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -24,11 +21,5 @@ public class UserData {
     private String lastName;
     private String email;
     private String password;
-    private String userType;
-
-    @DBRef
-    private List<EmptyForm> emptyForms;
-
-    @DBRef
-    private List<FilledForm> filledForms;
+    private UserType userType;
 }
