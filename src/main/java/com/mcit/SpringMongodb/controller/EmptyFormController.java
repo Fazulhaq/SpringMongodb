@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mcit.SpringMongodb.model.EmptyForm;
 import com.mcit.SpringMongodb.service.EmptyFormService;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -34,13 +35,14 @@ public class EmptyFormController {
     }
 
     @PostMapping("/emptyform/{userid}")
-    public ResponseEntity<HttpStatus> saveEmptyForm(@RequestBody EmptyForm emptyform, @PathVariable String userid) {
+    public ResponseEntity<HttpStatus> saveEmptyForm(@Valid @RequestBody EmptyForm emptyform,
+            @PathVariable String userid) {
         emptyFormService.saveEmptyForm(emptyform, userid);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/emptyform/{emptyformid}")
-    public ResponseEntity<EmptyForm> updateEmptyForm(@RequestBody EmptyForm emptyForm,
+    public ResponseEntity<EmptyForm> updateEmptyForm(@Valid @RequestBody EmptyForm emptyForm,
             @PathVariable String emptyformid) {
         return new ResponseEntity<>(emptyFormService.updateEmptyForm(emptyForm, emptyformid), HttpStatus.OK);
     }

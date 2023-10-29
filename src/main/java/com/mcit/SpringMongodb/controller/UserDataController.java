@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mcit.SpringMongodb.model.UserData;
 import com.mcit.SpringMongodb.service.UserDataService;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -34,7 +35,7 @@ public class UserDataController {
     }
 
     @PostMapping("/userdata")
-    public ResponseEntity<?> saveUserData(@RequestBody UserData userData) {
+    public ResponseEntity<?> saveUserData(@Valid @RequestBody UserData userData) {
 
         try {
 
@@ -53,7 +54,7 @@ public class UserDataController {
     }
 
     @PutMapping("/userdata/{id}")
-    public ResponseEntity<?> updateUserData(@PathVariable("id") String userId, @RequestBody UserData userData) {
+    public ResponseEntity<?> updateUserData(@Valid @RequestBody UserData userData, @PathVariable("id") String userId) {
         try {
             return new ResponseEntity<UserData>(userDataService.updateUserData(userData, userId), HttpStatus.OK);
         } catch (Exception e) {

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mcit.SpringMongodb.model.FilledForm;
 import com.mcit.SpringMongodb.service.FilledFormService;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -34,14 +35,15 @@ public class FilledFormController {
     }
 
     @PostMapping("/filledform/{userid}/{emptyformid}")
-    public ResponseEntity<HttpStatus> saveFilledForm(@RequestBody FilledForm filledForm, @PathVariable String userid,
+    public ResponseEntity<HttpStatus> saveFilledForm(@Valid @RequestBody FilledForm filledForm,
+            @PathVariable String userid,
             @PathVariable String emptyformid) {
         filledFormService.saveFilledForm(filledForm, userid, emptyformid);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/filledform/{filledformid}")
-    public ResponseEntity<FilledForm> updateFilledForm(@RequestBody FilledForm filledForm,
+    public ResponseEntity<FilledForm> updateFilledForm(@Valid @RequestBody FilledForm filledForm,
             @PathVariable String filledformid) {
         return new ResponseEntity<>(filledFormService.updateFilledForm(filledForm, filledformid), HttpStatus.OK);
     }
